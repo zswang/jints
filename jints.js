@@ -2,7 +2,7 @@
   /**
    * @file jints
    *
-   * The random function of the constructor can specify random seeds
+   * Big Integer
    * @author
    *   zswang (http://weibo.com/zswang)
    * @version 0.0.1
