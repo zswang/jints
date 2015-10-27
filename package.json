@@ -1,7 +1,7 @@
 {
   "name": "jints",
   "title": "Big Integer",
-  "description": "The random function of the constructor can specify random seeds",
+  "description": "Big Integer",
   "version": "0.0.1",
   "homepage": "http://github.com/zswang/jints",
   "main": "jints.js",
