@@ -5,7 +5,7 @@
    * Big Integer
    * @author
    *   zswang (http://weibo.com/zswang)
-   * @version 0.0.2
+   * @version 0.0.3
    * @date 2015-10-28
    */
   /**

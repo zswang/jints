@@ -2,7 +2,7 @@
   "name": "jints",
   "title": "Big Integer",
   "description": "Big Integer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "http://github.com/zswang/jints",
   "main": "jints.js",
   "author": {

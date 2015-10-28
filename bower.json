@@ -1,21 +1,20 @@
 {
-  "name": "jrands",
-  "version": "0.0.1",
-  "homepage": "https://github.com/zswang/jrands",
+  "name": "jints",
+  "version": "0.0.3",
+  "homepage": "https://github.com/zswang/jints",
   "authors": {
     "name": "zswang",
     "url": "http://weibo.com/zswang"
   },
-  "description": "The random function of the constructor can specify random seeds",
-  "main": "jrands.js",
+  "description": "Big Integer",
+  "main": "jints.js",
   "moduleType": [
     "globals",
     "node"
   ],
   "keywords": [
-    "random",
-    "seed",
-    "csharp"
+    "big",
+    "integer"
   ],
   "license": "MIT",
   "devDependencies": {
