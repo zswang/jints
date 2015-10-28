@@ -117,11 +117,10 @@
    *
    * @param {string} n 整数
    * @param {number} b 单个数
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number} scale 进制 2-64
    * @return {string} 返回n和b的乘积
    */
   function byteMul(n, b, scale) {
-    scale = scale || 10;
     var result = [];
     var t = 0;
     var i = n.length;
@@ -222,10 +221,13 @@
    * @return {string} 返回转换后的数字
    */
   function digit(n, from, to) {
-    if (from === to || from < 2 || from > 64 || to < 2 || to > 64) {
-      return n;
+    if (from < 2 || from > 64 || to < 2 || to > 64) {
+      return;
     }
     n = format(n);
+    if (from === to) {
+      return n;
+    }
     if (n === '0') {
       return n;
     }
@@ -266,7 +268,6 @@
     a = format(a);
     b = format(b);
     var i = Math.max(a.length, b.length);
-    var t = 0;
     var result = [];
     a = fullZero(a, i);
     b = fullZero(b, i);
@@ -307,7 +308,7 @@
       return;
     }
     a = format(a);
-    var div = 0;
+    var result = 0;
     while (compare(a, b) >= 0) {
       var t = b;
       var k = '1';
@@ -316,9 +317,9 @@
         k += '0';
       }
       a = sub(a, t, scale);
-      div = add(div, k, scale);
+      result = add(result, k, scale);
     }
-    return [div, a];
+    return [result, a];
   }
   exports.div = div;
   //console.log(div('32', '3', 10)); // ['10', '2']
@@ -347,17 +348,17 @@
     var result = '';
     var x = a[0];
     a = a[1];
-    while (a != 0 && !(a in num)) {
+    while (a !== '0' && !(a in num)) {
       num[a] = i++;
       a = div(a + '0', b, scale);
       result += a[0];
       a = a[1];
     }
-    if (a != '0') {
+    if (a !== '0') {
       i = num[a];
       return x + '.' + result.substring(0, i) + '(' + result.substring(i) + ')';
     }
-    return result ? x + '.' + result : x;
+    return x;
   }
   exports.div2 = div2;
 
