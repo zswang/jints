@@ -26,7 +26,7 @@
   /**
    * 进制字符串
    */
-  var scaleChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz$_';
+  var scaleChars = '0123456789abcdefghijklmnopqrstuvwxyz';
 
   /**
    * 向前补零 '1',5 -> '00001'
@@ -47,7 +47,7 @@
    * @return {string} 返回格式化后的整数字符串
    */
   function format(n) {
-    return String(n).replace(/^0+(.+)$/, '$1');
+    return String(n).replace(/^0+(.+)$/, '$1').toLowerCase();
   }
 
   /**
@@ -82,12 +82,12 @@
    *
    * @param {string} a 整数1
    * @param {string} b 整数2
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {string} 返回两个数的和
    */
   function add(a, b, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64) {
+    if (scale < 2 || scale > 36) {
       return;
     }
     a = format(a);
@@ -117,7 +117,7 @@
    *
    * @param {string} n 整数
    * @param {number} b 单个数
-   * @param {number} scale 进制 2-64
+   * @param {number} scale 进制 2-36
    * @return {string} 返回n和b的乘积
    */
   function byteMul(n, b, scale) {
@@ -143,12 +143,12 @@
    *
    * @param {string} a 整数1
    * @param {string} b 整数2
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {string} 返回两个数的乘积
    */
   function mul(a, b, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64) {
+    if (scale < 2 || scale > 36) {
       return;
     }
     a = format(a);
@@ -172,12 +172,12 @@
    *
    * @param {string} base 指数
    * @param {number} exponent 幂数
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {string} 返回base的exponent次方
    */
   function power(base, exponent, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64 || exponent < 0) {
+    if (scale < 2 || scale > 36 || exponent < 0) {
       return;
     }
     base = format(base);
@@ -196,8 +196,8 @@
    * 将一个字符转换为指定进制
    *
    * @param {string} c 单个字符
-   * @param {number} from 来源进制 2-64
-   * @param {number} to 目标进制 2-64
+   * @param {number} from 来源进制 2-36
+   * @param {number} to 目标进制 2-36
    * @return {string} 返回转换后的数字
    */
   function charDigit(c, from, to) {
@@ -216,12 +216,12 @@
    * 无限整数进制间的转换
    *
    * @param {string} n 整数
-   * @param {number} from 来源进制 2-64
-   * @param {number} to 目标进制 2-64
+   * @param {number} from 来源进制 2-36
+   * @param {number} to 目标进制 2-36
    * @return {string} 返回转换后的数字
    */
   function digit(n, from, to) {
-    if (from < 2 || from > 64 || to < 2 || to > 64) {
+    if (from < 2 || from > 36 || to < 2 || to > 36) {
       return;
     }
     n = format(n);
@@ -249,20 +249,20 @@
 
   //console.log(digit('1024', 10, 2)); // 10000000000
   //console.log(digit('7', 10, 2)); // 111
-  //console.log(digit('askdjfas91231as', 64, 7)); // 43425343430315560320062336416102
-  //console.log(digit(digit('askdjfas91231as', 64, 7), 7, 64)); // askdjfas91231as
+  //console.log(digit('askdjfas91231as', 36, 7)); // 43425343430315560320062333616102
+  //console.log(digit(digit('askdjfas91231as', 36, 7), 7, 36)); // askdjfas91231as
 
   /**
    * 无限整数减法
    *
    * @param {string} a 减数
    * @param {string} b 被减数
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {string} 返回转换后的数字
    */
   function sub(a, b, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64) {
+    if (scale < 2 || scale > 36) {
       return;
     }
     a = format(a);
@@ -295,12 +295,12 @@
    *
    * @param {string} a 除数
    * @param {string} b 被除数
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {Array} 返回[商数,余数]
    */
   function div(a, b, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64) {
+    if (scale < 2 || scale > 36) {
       return;
     }
     b = format(b);
@@ -329,12 +329,12 @@
    *
    * @param {string} a 除数
    * @param {string} b 被除数
-   * @param {number=} scale 进制 2-64, 默认 10
+   * @param {number=} scale 进制 2-36, 默认 10
    * @return {Array} 返回[商数,余数]
    */
   function div2(a, b, scale) {
     scale = scale || 10;
-    if (scale < 2 || scale > 64) {
+    if (scale < 2 || scale > 36) {
       return;
     }
     b = format(b);

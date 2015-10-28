@@ -108,15 +108,15 @@ describe('fixtures', function () {
   }, {
     name: 'add',
     params: ['ABC', '333D', 16],
-    value: '3DF9'
+    value: '3df9'
   }, {
     name: 'mul',
     params: ['123', '3'],
     value: '369'
   }, {
     name: 'mul',
-    params: ['ABC', '333D', 16],
-    value: '22602CC'
+    params: ['abc', '333d', 16],
+    value: '22602cc'
   }, {
     name: 'mul',
     params: ['101010101001', '10', 2],
@@ -139,16 +139,16 @@ describe('fixtures', function () {
     value: '1024'
   }, {
     name: 'sub',
-    params: ['3DF9', '333D', 16],
-    value: 'ABC'
+    params: ['3df9', '333d', 16],
+    value: 'abc'
   }, {
     name: 'sub',
-    params: ['3DF9', 'ABC', 16],
-    value: '333D'
+    params: ['3df9', 'abc', 16],
+    value: '333d'
   }, {
     name: 'div',
-    params: ['3DF9', 'ABC', 16],
-    value: ['5', '84D']
+    params: ['3df9', 'abc', 16],
+    value: ['5', '84d']
   }, {
     name: 'div2',
     params: ['1', '3'],
@@ -179,8 +179,8 @@ describe('fixtures', function () {
     });
   });
 
-  it('add(mul("ABC", "5", 16), "84D", 16) === "3DF9"', function () {
-    assert.equal(jints.add(jints.mul("ABC", "5", 16), "84D", 16), "3DF9");
+  it('add(mul("ABC", "5", 16), "84D", 16) === "3df9"', function () {
+    assert.equal(jints.add(jints.mul("ABC", "5", 16), "84D", 16), "3df9");
   });
 
 });
