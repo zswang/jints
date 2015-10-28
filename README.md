@@ -16,7 +16,7 @@ console.log(jints.digit('1024', 10, 2)); // '10000000000'
 console.log(jints.digit('10000000000', 2, 10)); // '1024'
 ```
 
-<img src="https://cloud.githubusercontent.com/assets/536587/10779484/70ba9faa-7d6c-11e5-925d-69651c3bbdb1.png" width="150" align="right">
+![img](https://cloud.githubusercontent.com/assets/536587/10779484/70ba9faa-7d6c-11e5-925d-69651c3bbdb1.png)
 
 ## License
 
