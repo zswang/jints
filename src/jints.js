@@ -28,6 +28,7 @@
    */
   var scaleChars = '0123456789abcdefghijklmnopqrstuvwxyz';
 
+  var exports = {};
   /**
    * 向前补零 '1',5 -> '00001'
    *
@@ -101,7 +102,7 @@
       t += scaleChars.indexOf(a.charAt(i));
       t += scaleChars.indexOf(b.charAt(i));
       result.unshift(scaleChars.charAt(t % scale));
-      t = t / scale;
+      t = parseInt(t / scale);
     }
     if (t) {
       result.unshift(scaleChars.charAt(t % scale));

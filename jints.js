@@ -5,13 +5,14 @@
    * Big Integer
    * @author
    *   zswang (http://weibo.com/zswang)
-   * @version 0.0.3
-   * @date 2015-10-28
+   * @version 0.0.4
+   * @date 2015-11-03
    */
   /**
    * 进制字符串
    */
   var scaleChars = '0123456789abcdefghijklmnopqrstuvwxyz';
+  var exports = {};
   /**
    * 向前补零 '1',5 -> '00001'
    *
@@ -81,7 +82,7 @@
       t += scaleChars.indexOf(a.charAt(i));
       t += scaleChars.indexOf(b.charAt(i));
       result.unshift(scaleChars.charAt(t % scale));
-      t = t / scale;
+      t = parseInt(t / scale);
     }
     if (t) {
       result.unshift(scaleChars.charAt(t % scale));

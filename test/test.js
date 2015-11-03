@@ -6,6 +6,10 @@ var util = require('util');
 describe('coverage', function () {
   var data = [{
     name: 'add',
+    params: ['ffffffffffffffffffffffffffffffffffffffffffffffe', '1', 16],
+    value: 'fffffffffffffffffffffffffffffffffffffffffffffff'
+  }, {
+    name: 'add',
     params: ['123456', '654321', 1],
     value: undefined
   }, {

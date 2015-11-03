@@ -2,7 +2,7 @@
   "name": "jints",
   "title": "Big Integer",
   "description": "Big Integer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "http://github.com/zswang/jints",
   "main": "jints.js",
   "author": {
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "test": "istanbul cover --hook-run-in-context node_modules/mocha/bin/_mocha -- -R spec",
-    "dist": "jdists src/jints.js -o jints.js && uglifyjs jints.js -o jints.min.js -p 5 -c -m",
+    "dist": "jdists src/jints.js -o jints.js && uglifyjs jints.js -o jints.min.js -p 5 -c -m && npm run test",
     "lint": "jshint src/*.js *.json"
   },
   "files": [
