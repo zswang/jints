@@ -23,40 +23,89 @@
    */
   /*</jdists>*/
 
+  /*<function name="scaleChars">*/
   /**
    * 进制字符串
    */
   var scaleChars = '0123456789abcdefghijklmnopqrstuvwxyz';
+  /*</function>*/
 
   var exports = {};
+  /*<function name="fullZero">*/
   /**
    * 向前补零 '1',5 -> '00001'
    *
    * @param {string} n 整数字符串
    * @param {number} len 长度
    * @return {string} 返回补零后的字符串
+   '''<example>'''
+   * @example fullZero():base
+    ```js
+    console.log(jints.fullZero('af', 5));
+    // > 000af
+
+    console.log(jints.fullZero('AF', 5));
+    // > 000AF
+
+    console.log(jints.fullZero('abcdef', 5));
+    // > abcdef
+    ```
+   '''</example>'''
    */
   function fullZero(n, len) {
     return new Array(len - n.length + 1).join('0') + n;
   }
+  /*</function>*/
   exports.fullZero = fullZero;
 
+  /*<function name="format">*/
   /**
    * 清理整数前面无效的零 '000000001' -> '1'
    *
    * @param {string} n 整数字符串
    * @return {string} 返回格式化后的整数字符串
+   '''<example>'''
+   * @example format():base
+    ```js
+    console.log(jints.format('000af'));
+    // > af
+
+    console.log(jints.format('abcdef'));
+    // > abcdef
+    ```
+   * @example format():LowerCase
+    ```js
+    console.log(jints.format('000AF'));
+    // > af
+    ```
+   '''</example>'''
    */
   function format(n) {
     return String(n).replace(/^0+(.+)$/, '$1').toLowerCase();
   }
+  /*</function>*/
+  exports.format = format;
 
+  /*<function name="compare" depend="fullZero,scaleChars">*/
   /**
    * 比较两个整数的大小 '1','0' -> +1
    *
    * @param {string} a
    * @param {string} b
    * @return {number} a > b 返回 +1, a === b 返回 0, a < b 返回 -1
+   '''<example>'''
+   * @example format():base
+    ```js
+    console.log(jints.compare('af', '00af'));
+    // > 0
+
+    console.log(jints.compare('af', 'ae'));
+    // > 1
+
+    console.log(jints.compare('ae', 'af'));
+    // > -1
+    ```
+   '''</example>'''
    */
   function compare(a, b) {
     var i = Math.max(a.length, b.length);
@@ -74,10 +123,13 @@
     }
     return 0;
   }
+  /*</function>*/
+  exports.compare = compare;
 
   //console.log(compare('01', '1'));
   //console.log(compare('0a1', 'ab1'));
 
+  /*<function name="add" depend="fullZero,scaleChars,format">*/
   /**
    * 无限整数加法
    *
@@ -109,10 +161,12 @@
     }
     return format(result.join(''));
   }
+  /*</function>*/
   exports.add = add;
 
   //console.log(add('19', '1234', 10));
 
+  /*<function name="byteMul" depend="scaleChars">*/
   /**
    * 无限位数乘法函数,单个数乘无限进制整数
    *
@@ -135,10 +189,12 @@
     }
     return result.join('');
   }
+  /*</function>*/
 
   //console.log(byteMul('555', 12, 10));
   //console.log(byteMul('25', 8, 10));
 
+  /*<function name="mul" depend="scaleChars,byteMul">*/
   /**
    * 无限整数乘法
    *
@@ -163,11 +219,13 @@
     }
     return result;
   }
+  /*</function>*/
   exports.mul = mul;
 
   //console.log(mul('555', '12', 10)); // 6660
   //console.log(mul('25', '8', 10)); // 200
 
+  /*<function name="power" depend="format,mul">*/
   /**
    * 无限整数的次方
    *
@@ -189,10 +247,12 @@
     }
     return result;
   }
+  /*</function>*/
   exports.power = power;
 
   //console.log(power('2', 10, 10)); // 1024
 
+  /*<function name="charDigit" depend="compare,add">*/
   /**
    * 将一个字符转换为指定进制
    *
@@ -210,9 +270,11 @@
     }
     return result;
   }
+  /*</function>*/
 
   //console.log(charDigit('7', 10, 2)); // 111
 
+  /*<function name="digit" depend="charDigit,format,scaleChars,add,mul,power">*/
   /**
    * 无限整数进制间的转换
    *
@@ -246,6 +308,7 @@
     }
     return result;
   }
+  /*</function>*/
   exports.digit = digit;
 
   //console.log(digit('1024', 10, 2)); // 10000000000
@@ -253,6 +316,7 @@
   //console.log(digit('askdjfas91231as', 36, 7)); // 43425343430315560320062333616102
   //console.log(digit(digit('askdjfas91231as', 36, 7), 7, 36)); // askdjfas91231as
 
+  /*<function name="sub" depend="fullZero,format,scaleChars">*/
   /**
    * 无限整数减法
    *
@@ -284,6 +348,7 @@
     result.unshift(scaleChars.charAt(t % scale));
     return format(result.join(''));
   }
+  /*</function>*/
   exports.sub = sub;
 
   //console.log(sub('32', '3', 10)); // 29
@@ -291,6 +356,7 @@
   //console.log(sub('23', '17', 10)); // 6
   //console.log(sub('101', '10', 2)); // 11
 
+  /*<function name="div" depend="format,compare,sub,add">*/
   /**
    * 无限整数除法
    *
@@ -322,9 +388,12 @@
     }
     return [result, a];
   }
+  /*</function>*/
+
   exports.div = div;
   //console.log(div('32', '3', 10)); // ['10', '2']
 
+  /*<function name="div2" depend="format,div">*/
   /**
    * 无限整数除法，如果是循环小数，则在循环部分加上括号
    *
@@ -361,6 +430,7 @@
     }
     return x;
   }
+  /*</function>*/
   exports.div2 = div2;
 
   //console.log(div2(1, 3)); // 0.(3)
