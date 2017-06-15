@@ -7,8 +7,8 @@
 
   var exports = {
       BigInteger: BigInteger,
-      UInt64,
-      Int64,
+      UInt64: UInt64,
+      Int64: Int64,
   };
 
   /* istanbul ignore next */
