@@ -2,7 +2,7 @@
   "name": "jints",
   "title": "Big Integer",
   "description": "Big Integer",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "homepage": "http://github.com/zswang/jints",
   "main": "jints.js",
   "author": {
@@ -15,7 +15,9 @@
   },
   "keywords": [
     "big",
-    "integer"
+    "integer",
+    "int64",
+    "uint64"
   ],
   "bugs": {
     "url": "https://github.com/zswang/jints/issues"
@@ -23,21 +25,26 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-examplejs": "0.0.9",
+    "gulp-jdists": "^2.0.17",
+    "gulp-rename": "^1.2.2",
+    "gulp-typescript": "^3.1.6",
+    "gulp-uglify": "^2.1.2",
+    "typescript": "^2.0.3",
     "mocha": "^2.0.1",
     "istanbul": "^0.3.17",
     "should": "^4.1.0",
     "uglify-js": "^2.4.15",
-    "jdists": "^1.0.9",
     "jshint": "^2.5.8"
   },
   "scripts": {
-    "_update_version": "jdists version.jdists",
-    "_dist": "jdists src/jints.js -o jints.js -r debug,test,remove,safe",
-    "_compress": "uglifyjs jints.js -o jints.min.js -p 5 -c -m",
-    "example": "jdists example.jdists.js -o test/example.js",
+    "_update_version": "node version.js",
+    "_dist": "gulp jdists",
+    "example": "gulp example",
     "test": "istanbul cover --hook-run-in-context node_modules/mocha/bin/_mocha -- -R spec",
-    "mocha": "jdists example.jdists.js -o test/example.js && mocha",
-    "dist": "npm run _update_version && npm run example && npm run _dist && npm run _compress && npm run test",
+    "mocha": "npm run example && mocha",
+    "dist": "npm run _update_version && npm run example && npm run _dist && npm run test",
     "lint": "jshint src/*.js *.json"
   },
   "files": [

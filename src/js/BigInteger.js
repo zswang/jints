@@ -1,5 +1,6 @@
-(function (exportName) {
-    /*<function name="BigInteger">*/
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/*<function name="BigInteger">*/
 var WORD_SIZE = 26;
 /**
  * 大整数
@@ -22,6 +23,7 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger('123');
       console.log(bi.toString());
       // > 123
+  
       var bi = new jints.BigInteger('');
       console.log(bi.toString());
       // > 0
@@ -49,12 +51,15 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger(1000.12);
       console.log(bi.toString());
       // > 1000
+  
       var bi = new jints.BigInteger(-1000.12);
       console.log(bi.toString());
       // > -1000
+  
       var bi = new jints.BigInteger(0x4000000);
       console.log(bi.toString(16));
       // > 4000000
+  
       var bi = new jints.BigInteger(0x10000000000000);
       console.log(bi.toString(16));
       // > 10000000000000
@@ -114,10 +119,13 @@ var BigInteger = (function () {
        ```js
        console.log(jints.BigInteger.parseText('123', 0, 3, 10));
        // > 123
+  
        console.log(jints.BigInteger.parseText('123', 1, 3, 10));
        // > 23
+  
        console.log(jints.BigInteger.parseText('123', 1, 3, 16));
        // > 35
+  
        console.log(jints.BigInteger.parseText('Aa', 0, 2, 16));
        // > 170
        ```
@@ -152,6 +160,7 @@ var BigInteger = (function () {
       bi.parse('0123456789abcdef', 16);
       console.log(bi.toString(16));
       // > 123456789abcdef
+  
       bi.parse('0123456789abcdef', 16, 3);
       console.log(bi.toString(16));
       // > 3456789abcdef
@@ -162,6 +171,7 @@ var BigInteger = (function () {
       bi.parse('zzzzzzzzzzzz', 36);
       console.log(bi.toString(36));
       // > zzzzzzzzzzzz
+  
       bi.parse('2821122424961', 10);
       console.log(bi.toString(10));
       // > 2821122424961
@@ -219,6 +229,7 @@ var BigInteger = (function () {
       bi.div(2);
       console.log(bi.toString());
       // > 50
+  
       var bi = new jints.BigInteger(101);
       bi.div(3);
       console.log(bi.toString());
@@ -255,6 +266,7 @@ var BigInteger = (function () {
       bi.mul(2);
       console.log(bi.toString());
       // > 202
+  
       var bi = new jints.BigInteger(7);
       bi.mul(3);
       console.log(bi.toString());
@@ -288,6 +300,7 @@ var BigInteger = (function () {
       bi.add(2);
       console.log(bi.toString());
       // > 103
+  
       var bi = new jints.BigInteger(7);
       bi.add(3);
       console.log(bi.toString());
@@ -321,6 +334,7 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger(101);
       console.log(bi.mod(2));
       // > 1
+  
       var bi = new jints.BigInteger(7);
       console.log(bi.mod(3));
       // > 1
@@ -342,6 +356,7 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger(0);
       console.log(bi.isZero());
       // > true
+  
       var bi = new jints.BigInteger(1);
       console.log(bi.isZero());
       // > false
@@ -375,8 +390,10 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger('1234567890000000000000000');
       console.log(bi.toString());
       // > 1234567890000000000000000
+  
       console.log(bi.toString(16));
       // > 1056e0f3635fbb7d50000
+  
       console.log(bi.toString(36));
       // > 5l1ec1qoa123tvk0
       ```
@@ -424,16 +441,20 @@ var BigInteger = (function () {
       var b = new jints.BigInteger('0xfffffff');
       console.log(a.compare(b));
       // > 0
+  
       b.add(1);
       console.log(a.compare(b));
       // > -1
+  
       a.add(2);
       console.log(a.compare(b));
       // > 1
+  
       var a = new jints.BigInteger(2);
       var b = new jints.BigInteger(1);
       console.log(a.compare(b));
       // > 1
+  
       var a = new jints.BigInteger(-2);
       var b = new jints.BigInteger(-1);
       console.log(a.compare(b));
@@ -443,12 +464,15 @@ var BigInteger = (function () {
       ```js
       var a = new jints.BigInteger('0xfffffff');
       var b = new jints.BigInteger('0xfffffff');
+  
       b.negative = 1;
       console.log(a.compare(b));
       // > 1
+  
       a.negative = 1;
       console.log(a.compare(b));
       // > 0
+  
       b.negative = 0;
       console.log(a.compare(b));
       // > -1
@@ -457,8 +481,10 @@ var BigInteger = (function () {
       ```js
       var a = new jints.BigInteger('0xfffffff');
       var b = new jints.BigInteger('0xff');
+  
       console.log(a.compare(b));
       // > 1
+  
       console.log(b.compare(a));
       // > -1
       ```
@@ -543,6 +569,7 @@ var BigInteger = (function () {
       c.shr(10);
       console.log(c.toString(2));
       // > 1001000100000001100
+  
       var c = bi.clone();
       c.shr(28);
       console.log(c.toString(2));
@@ -554,9 +581,11 @@ var BigInteger = (function () {
       bi.shr(0);
       console.log(bi.toString());
       // > 0
+  
       bi.shr(26);
       console.log(bi.toString());
       // > 0
+  
       var bi = new jints.BigInteger(1);
       bi.shr(1);
       console.log(bi.toString());
@@ -600,6 +629,7 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger('0x1234567890ab');
       console.log(JSON.stringify(bi.toArray()));
       // > [171,144,120,86,52,18]
+  
       console.log(JSON.stringify(bi.toArray('be')));
       // > [18,52,86,120,144,171]
       ```
@@ -608,6 +638,7 @@ var BigInteger = (function () {
       var bi = new jints.BigInteger('0x1234567890ab');
       console.log(JSON.stringify(bi.toArray('be', 8)));
       // > [0,0,18,52,86,120,144,171]
+  
       console.log(JSON.stringify(bi.toArray('le', 8)));
       // > [171,144,120,86,52,18,0,0]
       ```
@@ -661,6 +692,7 @@ var BigInteger = (function () {
       bi.fromArray([]);
       console.log(bi.toString());
       // > 0
+  
       var bi = new jints.BigInteger();
       bi.fromArray([1, 2, 3, 4, 5, 6], 'be');
       console.log(bi.toString(16));
@@ -766,6 +798,7 @@ var BigInteger = (function () {
       bi.not(26);
       console.log(bi.toString(2));
       // > 11111111111111111111110101
+  
       var bi = new jints.BigInteger('0b1010');
       bi.not(28);
       console.log(bi.toString(2));
@@ -794,344 +827,4 @@ var BigInteger = (function () {
     };
     return BigInteger;
 }()); /*</function>*/
-    /*<function name="UInt64">*/
-var UInt64 = (function () {
-    /**
-     * Creates and returns a new 64-bit signed integer.
-     * This may be specified as an integer (if the value can be represented as a 32-bit value),
-     * another 64-bit integer object (either signed or unsigned), or as a string, which may consist of an optional minus sign,
-     * followed by either a decimal number or "0x" or "0X" followed by a hexadecimal number.
-     * The string is then converted into the corresponding 64-bit integer value.
-     * You can therefore use a string to represent a 64-bit value that is too large to represent as a 32-bit JavaScript Number.
-     *
-     * @param value The value to assign the new 64-bit integer object.
-     * @return A new object representing the specified value.
-     * @exception TypeError The specified value cannot be converted into a 64-bit integer. Either it's not a Number, String, or 64-bit integer object, or it's a string that is incorrectly formatted or contains a value outside the range that can be represented in 64 bits. This will also be thrown if the source value is a floating-point number that can't be precisely represented as a 64-bit integer.
-     * @example UInt64():base
-      ```js
-      var uint64 = new jints.UInt64('0x12345');
-      console.log(uint64.toString());
-      // > 74565
-      console.log(uint64.low);
-      // > 74565
-      console.log(uint64.high);
-      // > 0
-      ```
-     * @example UInt64():-1
-      ```js
-      var uint64 = new jints.UInt64(-1);
-      console.log(uint64.toString(16));
-      // > ffffffffffffffff
-      ```
-     */
-    function UInt64(value) {
-        this.value = new BigInteger(value);
-        this.value.twos(64);
-        var arr32 = new Int32Array(new Uint8Array(this.toArray()).buffer);
-        this.low = arr32[0];
-        this.high = arr32[1];
-    }
-    /**
-     * Compares two 64-bit integer values.
-     *
-     * @param a The first value to compare.
-     * @param b The second value to compare.
-     * @return The returned value is: -1 if a < b, 0 if a == b, and 1 if a > b.
-     * @exception One or both of the specified values is not a 64-bit integer (either signed or unsigned).
-     * @example UInt64.compare():base
-      ```js
-      var a = new jints.UInt64('0x12345');
-      var b = new jints.UInt64('0x12345');
-      console.log(jints.UInt64.compare(a, b));
-      // > 0
-      ```
-     */
-    UInt64.compare = function (a, b) {
-        return a.value.compare(b.value);
-    };
-    /**
-     * Returns the high 32 bits of the specified value.
-     *
-     * @param num The value whose high 32 bits are to be returned.
-     * @return The high 32 bits of num are returned. This is essentially num >> 32.
-     * @exception TypeError num is not a 64-bit integer object.
-     * @example UInt64.hi():base
-      ```js
-      var a = new jints.UInt64('0x12345');
-      console.log(jints.UInt64.hi(a));
-      // > 0
-      ```
-     */
-    UInt64.hi = function (num) {
-        return num.high;
-    };
-    /**
-     * Returns the low 32 bits of the specified value.
-     * @param num The UInt64 value whose low 32 bits are to be returned.
-     * @return The high 32 bits of num are returned. This is essentially num & 0xFFFFFFFF.
-     * @exception TypeError num is not a 64-bit integer object.
-     * @example UInt64.lo():base
-      ```js
-      var a = new jints.UInt64('0x12345');
-      console.log(jints.UInt64.lo(a));
-      // > 74565
-      ```
-     */
-    UInt64.lo = function (num) {
-        return num.low;
-    };
-    /**
-     * Creates a 64-bit integer object whose value is constructed using the specified high and low order 32-bit values.
-     *
-     * @param high The high-order 32 bits of the value to create.
-     * @param low The low-order 32 bits of the value to create.
-     * @return A new 64-bit integer object comprised of the two values merged together. The returned value is (high << 32) + low.
-     * @exception TypeError One or both of the specified numbers is not a JavaScript number with an integral value.
-     * @example UInt64.join():base
-      ```js
-      var a = new jints.UInt64.join(1234, 5678);
-      console.log(a.low);
-      // > 5678
-      console.log(a.high);
-      // > 1234
-      console.log(a.toString());
-      // > 5299989648942
-      ```
-     */
-    UInt64.join = function (high, low) {
-        var result = new UInt64(0);
-        var arr8 = new Uint8Array(new Int32Array([low, high]).buffer);
-        result.value.fromArray(arr8);
-        result.low = low;
-        result.high = high;
-        return result;
-    };
-    /**
-     * Returns a string representation of the object's numeric value.
-     *
-     * @param radix The radix (base) to use when constructing the string. If you don't specify a radix, base 10 is used.
-     * @return A string representation of the value in the specified radix. This string consists of a leading minus sign, if the value was negative, followed by one or more lower-case digits in the specified radix.
-     * @example toString():base
-      ```js
-      var a = new jints.UInt64.join(1234, 5678);
-      console.log(a.toString(16));
-      // > 4d20000162e
-      ```
-     */
-    UInt64.prototype.toString = function (radix) {
-        if (radix === void 0) { radix = 10; }
-        return this.value.toString(radix);
-    };
-    /**
-     * Convert to byte Array, and optionally zero pad to length, throwing if already exceeding
-     *
-     * @param endian endian
-     * @example toArray():base
-      ```js
-      var a = new jints.UInt64.join(1234, 5678);
-      console.log(JSON.stringify(a.toArray()));
-      // > [46,22,0,0,210,4,0,0]
-      console.log(JSON.stringify(a.toArray('be')));
-      // > [0,0,4,210,0,0,22,46]
-      ```
-     */
-    UInt64.prototype.toArray = function (endian) {
-        if (endian === void 0) { endian = 'le'; }
-        return this.value.toArray(endian, 8);
-    };
-    return UInt64;
-}()); /*</function>*/
-    /*<function name="Int64">*/
-var Int64 = (function () {
-    /**
-     * Creates and returns a new 64-bit signed integer.
-     * This may be specified as an integer (if the value can be represented as a 32-bit value),
-     * another 64-bit integer object (either signed or unsigned), or as a string, which may consist of an optional minus sign,
-     * followed by either a decimal number or "0x" or "0X" followed by a hexadecimal number.
-     * The string is then converted into the corresponding 64-bit integer value.
-     * You can therefore use a string to represent a 64-bit value that is too large to represent as a 32-bit JavaScript Number.
-     *
-     * @param value The value to assign the new 64-bit integer object.
-     * @return A new object representing the specified value.
-     * @exception TypeError The specified value cannot be converted into a 64-bit integer. Either it's not a Number, String, or 64-bit integer object, or it's a string that is incorrectly formatted or contains a value outside the range that can be represented in 64 bits. This will also be thrown if the source value is a floating-point number that can't be precisely represented as a 64-bit integer.
-     * @example Int64():base
-      ```js
-      var int64 = new jints.Int64('0x12345');
-      console.log(int64.toString());
-      // > 74565
-      console.log(int64.low);
-      // > 74565
-      console.log(int64.high);
-      // > 0
-      ```
-     */
-    function Int64(value) {
-        this.value = new BigInteger(value);
-        var arr32 = new Int32Array(new Uint8Array(this.toArray()).buffer);
-        this.low = arr32[0];
-        this.high = arr32[1];
-    }
-    /**
-     * Compares two 64-bit integer values.
-     *
-     * @param a The first value to compare.
-     * @param b The second value to compare.
-     * @return The returned value is: -1 if a < b, 0 if a == b, and 1 if a > b.
-     * @exception One or both of the specified values is not a 64-bit integer (either signed or unsigned).
-     * @example Int64.compare():base
-      ```js
-      var a = new jints.Int64('0x12345');
-      var b = new jints.Int64('0x12345');
-      console.log(jints.Int64.compare(a, b));
-      // > 0
-      ```
-     */
-    Int64.compare = function (a, b) {
-        return a.value.compare(b.value);
-    };
-    /**
-     * Returns the high 32 bits of the specified value.
-     *
-     * @param num The value whose high 32 bits are to be returned.
-     * @return The high 32 bits of num are returned. This is essentially num >> 32.
-     * @exception TypeError num is not a 64-bit integer object.
-     * @example Int64.hi():base
-      ```js
-      var a = new jints.Int64('0x12345');
-      console.log(jints.Int64.hi(a));
-      // > 0
-      ```
-     */
-    Int64.hi = function (num) {
-        return num.high;
-    };
-    /**
-     * Returns the low 32 bits of the specified value.
-     * @param num The Int64 value whose low 32 bits are to be returned.
-     * @return The high 32 bits of num are returned. This is essentially num & 0xFFFFFFFF.
-     * @exception TypeError num is not a 64-bit integer object.
-     * @example Int64.lo():base
-      ```js
-      var a = new jints.Int64('0x12345');
-      console.log(jints.Int64.lo(a));
-      // > 74565
-      ```
-     */
-    Int64.lo = function (num) {
-        return num.low;
-    };
-    /**
-     * Creates a 64-bit integer object whose value is constructed using the specified high and low order 32-bit values.
-     *
-     * @param high The high-order 32 bits of the value to create.
-     * @param low The low-order 32 bits of the value to create.
-     * @return A new 64-bit integer object comprised of the two values merged together. The returned value is (high << 32) + low.
-     * @exception TypeError One or both of the specified numbers is not a JavaScript number with an integral value.
-     * @example Int64.join():base
-      ```js
-      var a = new jints.Int64.join(1234, 5678);
-      console.log(a.low);
-      // > 5678
-      console.log(a.high);
-      // > 1234
-      console.log(a.toString());
-      // > 5299989648942
-      ```
-     * @example Int64.join():-1
-      ```js
-      var a = new jints.Int64.join(-1, -1);
-      console.log(a.low);
-      // > -1
-      console.log(a.high);
-      // > -1
-      console.log(a.toString());
-      // > -1
-      ```
-     * @example Int64.join():-0x1234567890abcdef
-      ```js
-      var a = new jints.Int64('-0x1234567890abcdef');
-      var b = jints.Int64.join(a.high, a.low)
-      console.log(b.toString(16));
-      // > -1234567890abcdef
-      ```
-     */
-    Int64.join = function (high, low) {
-        var result = new Int64(0);
-        var arr8 = new Uint8Array(new Int32Array([low, high]).buffer);
-        result.value.fromArray(arr8);
-        if (high < 0) {
-            result.value.negative = 1;
-            result.value.twos(64);
-            result.value.negative = 1;
-        }
-        result.low = low;
-        result.high = high;
-        return result;
-    };
-    /**
-     * Returns a string representation of the object's numeric value.
-     *
-     * @param radix The radix (base) to use when constructing the string. If you don't specify a radix, base 10 is used.
-     * @return A string representation of the value in the specified radix. This string consists of a leading minus sign, if the value was negative, followed by one or more lower-case digits in the specified radix.
-     * @example toString():base
-      ```js
-      var a = new jints.Int64.join(1234, 5678);
-      console.log(a.toString(16));
-      // > 4d20000162e
-      ```
-     * @example Int64():-1
-      ```js
-      var int64 = new jints.Int64(-1);
-      console.log(int64.toString(16));
-      // > -1
-      ```
-     */
-    Int64.prototype.toString = function (radix) {
-        if (radix === void 0) { radix = 10; }
-        return this.value.toString(radix);
-    };
-    /**
-     * Convert to byte Array, and optionally zero pad to length, throwing if already exceeding
-     *
-     * @param endian endian
-     * @example toArray():base
-      ```js
-      var a = new jints.Int64.join(1234, 5678);
-      console.log(JSON.stringify(a.toArray()));
-      // > [46,22,0,0,210,4,0,0]
-      console.log(JSON.stringify(a.toArray('be')));
-      // > [0,0,4,210,0,0,22,46]
-      ```
-     * @example toArray():-1
-      ```js
-      var int64 = new jints.Int64(-1);
-      console.log(JSON.stringify(int64.toArray()));
-      // > [255,255,255,255,255,255,255,255]
-      ```
-     */
-    Int64.prototype.toArray = function (endian) {
-        if (endian === void 0) { endian = 'le'; }
-        var c = this.value.clone();
-        c.twos(64);
-        return c.toArray(endian, 8);
-    };
-    return Int64;
-}()); /*</function>*/
-  var exports = {
-      BigInteger: BigInteger,
-      UInt64,
-      Int64,
-  };
-  /* istanbul ignore next */
-  if (typeof define === 'function') {
-    if (define.amd || define.cmd) {
-      define(function() {
-        return exports;
-      });
-    }
-  } else if (typeof module !== 'undefined' && module.exports) {
-    module.exports = exports;
-  } else {
-    window[exportName] = exports;
-  }
-})('jints');
+exports.BigInteger = BigInteger;

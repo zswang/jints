@@ -1,6 +1,6 @@
 {
   "name": "jints",
-  "version": "0.0.5",
+  "version": "1.0.5",
   "homepage": "https://github.com/zswang/jints",
   "authors": {
     "name": "zswang",
@@ -30,5 +30,9 @@
     "app/components",
     "test",
     "tests"
-  ]
+  ],
+  "author": {
+    "name": "zswang",
+    "url": "http://weibo.com/zswang"
+  }
 }

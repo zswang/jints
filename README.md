@@ -1,22 +1,24 @@
 # [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverage-image]][coverage-url]
 
-# jints
+jints
+--------
+JavaScript Big Integer
 
-
-Javascript Big Integer
-
-jints 一个处理大整数的工具，支持各种进制间的转换
-
-e.g.
-
-+ input:
+## BinInteger
 
 ```js
-console.log(jints.digit('1024', 10, 2)); // '10000000000'
-console.log(jints.digit('10000000000', 2, 10)); // '1024'
+var bi = new jints.BigInteger('0x1234567890abcdef');
+console.log(bi.toString(16))
+// > 1234567890abcdef
 ```
 
-![img](https://cloud.githubusercontent.com/assets/536587/10779484/70ba9faa-7d6c-11e5-925d-69651c3bbdb1.png)
+## Int64
+
+<https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/Int64>
+
+## UInt64
+
+<https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/js-ctypes_reference/UInt64>
 
 ## License
 
