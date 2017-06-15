@@ -2,7 +2,7 @@
   "name": "jints",
   "title": "Big Integer",
   "description": "Big Integer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "http://github.com/zswang/jints",
   "main": "jints.js",
   "author": {
@@ -48,6 +48,8 @@
     "lint": "jshint src/*.js *.json"
   },
   "files": [
-    "jints.js"
+    "jints.js",
+    "jints.min.js",
+    "src/ts"
   ]
 }
