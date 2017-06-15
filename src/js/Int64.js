@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var BigInteger_1 = require("./BigInteger");
-/*<function name="Int64">*/
+/*<function name="Int64" depend="BigInteger">*/
 var Int64 = (function () {
     /**
      * Creates and returns a new 64-bit signed integer.

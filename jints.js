@@ -794,7 +794,7 @@ var BigInteger = (function () {
     };
     return BigInteger;
 }()); /*</function>*/
-    /*<function name="UInt64">*/
+    /*<function name="UInt64" depend="BigInteger">*/
 var UInt64 = (function () {
     /**
      * Creates and returns a new 64-bit signed integer.
@@ -941,7 +941,7 @@ var UInt64 = (function () {
     };
     return UInt64;
 }()); /*</function>*/
-    /*<function name="Int64">*/
+    /*<function name="Int64" depend="BigInteger">*/
 var Int64 = (function () {
     /**
      * Creates and returns a new 64-bit signed integer.

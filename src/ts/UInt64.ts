@@ -1,6 +1,6 @@
 import { BigInteger, EndianType } from './BigInteger'
 
-/*<function name="UInt64">*/
+/*<function name="UInt64" depend="BigInteger">*/
 class UInt64 {
 
   high: number
