@@ -1,8 +1,8 @@
 {
   "name": "jints",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage": "https://github.com/zswang/jints",
-  "authors": {
+  "author": {
     "name": "zswang",
     "url": "http://weibo.com/zswang"
   },
@@ -25,16 +25,13 @@
   },
   "ignore": [
     "tests",
-    "src",
+    "src/js",
+    "src/*.jdists.js",
     "**/.*",
     "node_modules",
     "bower_components",
     "app/components",
     "test",
     "tests"
-  ],
-  "author": {
-    "name": "zswang",
-    "url": "http://weibo.com/zswang"
-  }
+  ]
 }

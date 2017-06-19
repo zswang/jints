@@ -53,7 +53,7 @@ class BigInteger {
   /**
    * 内存字
    */
-  private words: number[]
+  public words: number[]
 
   /**
    * 是否为负数 1 为负数
