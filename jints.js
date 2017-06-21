@@ -1200,12 +1200,12 @@ function sub(a, b) {
     var ac;
     var bc;
     if (cmp > 0) {
-        ac = a.clone();
-        bc = b.clone();
+        ac = a;
+        bc = b;
     }
     else {
-        bc = a.clone();
-        ac = b.clone();
+        bc = a;
+        ac = b;
     }
     var result = ac.clone();
     var carry = 0;
@@ -1278,12 +1278,12 @@ function add(a, b) {
     var ac;
     var bc;
     if (a.length > b.length) {
-        ac = a.clone();
-        bc = b.clone();
+        ac = a;
+        bc = b;
     }
     else {
-        bc = a.clone();
-        ac = b.clone();
+        bc = a;
+        ac = b;
     }
     var carry = 0;
     var i = 0;

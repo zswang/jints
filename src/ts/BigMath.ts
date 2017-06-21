@@ -67,11 +67,11 @@ function sub(a: BigInteger | number | string, b: BigInteger | number | string): 
   let ac: BigInteger
   let bc: BigInteger
   if (cmp > 0) {
-    ac = a.clone()
-    bc = b.clone()
+    ac = a
+    bc = b
   } else {
-    bc = a.clone()
-    ac = b.clone()
+    bc = a
+    ac = b
   }
 
   let result = ac.clone()
@@ -104,10 +104,10 @@ function sub(a: BigInteger | number | string, b: BigInteger | number | string): 
 }
 
 /**
- * 大数相减
+ * 大数相加
  *
- * @param a 减数
- * @param b 被减数
+ * @param a 加数 1
+ * @param b 加数 2
  * @return 返回余数
  * @example add():base
   ```js
@@ -151,11 +151,11 @@ function add(a: BigInteger | number | string, b: BigInteger | number | string): 
   let ac: BigInteger
   let bc: BigInteger
   if (a.length > b.length) {
-    ac = a.clone()
-    bc = b.clone()
+    ac = a
+    bc = b
   } else {
-    bc = a.clone()
-    ac = b.clone()
+    bc = a
+    ac = b
   }
 
   let carry = 0
